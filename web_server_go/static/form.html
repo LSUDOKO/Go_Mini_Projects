@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-        <div>
-            <form action="POST"  >
-                <label >Name</label><input name="name" type="text" value=""/>
-                <label >Roll_NO</label><input name="Roll_NO" type="text" value=""/>
-                <label >Branch</label><input name="Branch" type="text" value=""/>
-                <label >Room_No</label><input name="Room_No" type="text" value=""/>
-                <input type="submit" value="submit">
-            </form>
-        </div>
-    </body>
+<head>
+    <title>Form Test</title>
+</head>
+<body>
+    <form action="/form" method="POST">
+        <label>Name</label>
+        <input type="text" name="name"><br>
+
+        <label>Roll_NO</label>
+        <input type="text" name="Roll_NO"><br>
+
+        <label>Branch</label>
+        <input type="text" name="Branch"><br>
+
+        <label>Room_No</label>
+        <input type="text" name="Room_No"><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
 </html>

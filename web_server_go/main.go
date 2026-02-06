@@ -6,11 +6,16 @@ import (
 	"net/http"
 )
 
-func formHandler(w http.ResponseWriter, r http.Request) {
+func formHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != "POST" {
+		http.Error(w, "Method NOt allowed", http.StatusMethodNotAllowed)
+		return
+	}
 	if err := r.ParseForm(); err != nil {
 		fmt.Fprintf(w, "Parseform() err %v", err)
+		return
 	}
-	fmt.Fprintf(w, "Post Request sucessfull")
+	fmt.Fprintf(w, "Post Request sucessfull\n")
 	name := r.FormValue("name")
 	Roll_NO := r.FormValue("Roll_NO")
 	Branch := r.FormValue("Branch")
@@ -36,9 +41,10 @@ func main() {
 	fileServer := http.FileServer(http.Dir("./static"))
 	http.Handle("/", fileServer)
 	http.HandleFunc("/form", formHandler)
-	http.HandlerFunc("/hello", helloHandler)
-	fmt.Println("Server start at port 8080\n")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	http.HandleFunc("/hello", helloHandler)
+	fmt.Println("Server start at port 8081")
+	fmt.Println()
+	if err := http.ListenAndServe(":8081", nil); err != nil {
 		log.Fatal(err)
 	}
 }
