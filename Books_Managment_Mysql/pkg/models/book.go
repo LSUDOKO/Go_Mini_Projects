@@ -25,7 +25,7 @@ func (b *Book) CreateBook() *Book {
 	db.Create(&b)
 	return b
 }
-func GetBook() []Book {
+func GetAllBook() []Book {
 	var Books []Book
 	db.Find(&Books)
 	return Books

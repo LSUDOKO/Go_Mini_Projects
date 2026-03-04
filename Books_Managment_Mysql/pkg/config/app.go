@@ -10,13 +10,12 @@ var (
 )
 
 func Connect() {
-	d, err := gorm.Open("mysql", "root:arpit/simplerest?charset=utf8&parseTime=True&loc=Local")
+	d, err := gorm.Open("mysql", "root:arpit@tcp(127.0.0.1:3306)/simplerest?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
 		panic(err)
 	}
-	db = d;
-
+	db = d
 }
 func GetDB() *gorm.DB {
-	return db;
+	return db
 }
