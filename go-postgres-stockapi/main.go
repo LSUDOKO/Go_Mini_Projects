@@ -9,6 +9,6 @@ import (
 
 func main() {
 	r := router.Router()
-	fmt.Println("Satrting server on port 8080....")
-	log.Fatal(http.ListenAndServe(8080, r))
+	fmt.Println("Satrting server on port 8081....")
+	log.Fatal(http.ListenAndServe(":8081", r))
 }
